@@ -162,7 +162,7 @@ export default function Home() {
     },
     {
       id: 2,
-      image: "/bag-1.webp",
+      image: "/bag-2.webp",
       title: "Adidas",
       price: 39.99,
       description: "Adidas Defender III Duffel Bag",
@@ -226,15 +226,62 @@ export default function Home() {
     }
   };
 
+  const latestProducts = [
+    {
+      id: 1,
+      image: "/jewe-1.webp",
+      title: "Gold Necklace",
+      price: 199.99,
+      description: "RUBANS Brass Gold, Multicolor, Adjustable",
+      previousAmmount: 249.99,
+      stock: 5
+    },
+    {
+      id: 1,
+      image: "/groce-1.webp",
+      title: "Lady's Finger",
+      price: 0.99,
+      description: "Unbranded Lady's Finger ",
+      previousAmmount: 1.49,
+      stock: 100
+    },
+    {
+      id: 3,
+      image: "/footware-1.webp",
+      title: "Nike",
+      price: 89.99,
+      description: "Nike Air Max 270 React",
+      previousAmmount: 109.99,
+      stock: 10
+    },
+    {
+      id: 4,
+      image: "/bag-1.webp",
+      title: "Nike",
+      price: 49.99,
+      description: "Nike Brasilia Training Duffel Bag",
+      previousAmmount: 59.99,
+      stock: 12
+    },
+    {
+      id: 5,
+      image: "/ele-5.jpg",
+      title: "Techno",
+      price: 1499.99,
+      description: "Tecno POP 8 64 GB, 4 GB",
+      previousAmmount: 1599.99,
+      stock: 3
+    }
+  ];
+
   const popularProducts = filteredProducts();
 
 
   return (
     <div className="">
-      <Header />
       <Banner />
       {/* Small Cards */}
-      <div className="flex gap-4 ml-8 mr-8">
+      <div className="grid grid-cols-2 md:grid-cols-5 lg:grid-cols-8 gap-4 ml-8 mr-8">
         {
           products.map((product, index) => (
             <SmallCard
@@ -268,7 +315,7 @@ export default function Home() {
       </div>
 
       {/* MainCard */}
-      <div className="ml-8 mr-8 grid grid-cols-5 gap-4 mb-8">
+      <div className="ml-8 mr-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 mb-8">
         {
           popularProducts.map((product) => (
             <MainCard
@@ -285,34 +332,51 @@ export default function Home() {
       </div>
 
       <div>
-        <div className="grid grid-cols-2 gap-4 px-8 py-2 pb-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 px-8 py-2 pb-8">
 
           {/* LEFT BIG IMAGE */}
-          <div className="">
+          <div className="relative text-right">
             <img
               src="/slider-1.jpg"
               alt="Banner 1"
               className="w-full h-full object-cover rounded-lg"
             />
+            <h5 className="absolute lg:top-45 top-5  lg:text-2xl text-sm right-4 text-[var(--color-primary)] font-bold ">Big Saving Days Sale </h5>
+            <h2 className="absolute lg:top-55 top-10 lg:text-3xl text-sm right-4 text-[var(--color-black)] font-bold ">Buy New Women Trend | Black <br />
+              Top Cotton Blend Top
+            </h2>
+            <p className="absolute lg:top-75 top-20 right-4 lg:text-2xl text-sm text-[var(--color-black)]">Starting At Only <span className="font-bold text-[var(--color-primary)]">₹1,500.00</span></p>
           </div>
 
           {/* RIGHT SIDE */}
-          <div className="grid grid-rows-2 gap-2 ">
+          <div className="grid grid-rows-2 gap-4 ">
 
-            <img src="/mobile-img.jpg" className="w-full h-[275px] object-cover rounded-lg" />
+            <div className="relative">
+              <img src="/mobile-img.jpg" className="w-full lg:h-[275px] h-[150px] md:h-[250px] object-cover rounded-lg" />
+              <h5 className="absolute lg:top-35 top-10 lg:text-2xl text-sm left-4 text-[var(--color-black)] font-bold ">
+                Buy Apple iPhone
+              </h5>
+              <span className="absolute lg:top-45 top-15 lg:text-2xl text-sm left-4 text-[var(--color-primary)] font-bold ">45000</span>
+            </div>
 
-            <img
-              src="/shoes.webp"
-              alt="Banner 3"
-              className="w-full h-[275px] object-cover rounded-lg"
-            />
+            <div className="relative">
 
+              <img
+                src="/shoes.webp"
+                alt="Banner 3"
+                className="w-full lg:h-[275px] h-[150px] md:h-[250px] object-cover rounded-lg"
+              />
+              <h5 className="absolute lg:top-10 top-5 lg:text-2xl text-sm right-4 text-[var(--color-black)] font-bold ">
+                Buy Nike Shoes
+              </h5>
+              <span className="absolute lg:top-20 top-10 lg:text-2xl text-sm right-4 text-[var(--color-primary)] font-bold ">3500</span>
+            </div>
           </div>
 
         </div>
       </div>
 
-      <div className="lg:ml-16 lg:mr-16 gap-4 mb-8 border border-[var(--color-primary)] px-8 py-8 bg-white flex justify-between items-center">
+      <div className="lg:ml-16 hidden lg:mr-16 gap-4 mb-8 border border-[var(--color-primary)] py-8 px-8 bg-white lg:flex justify-between items-center">
         <div className="flex items-left gap-4">
           <Image
             src="/freeshiping-truck.svg"
@@ -325,6 +389,104 @@ export default function Home() {
         </div>
         <p className="text-gray-600">Free Delivery Now On Your First Order and over 2000</p>
         <p className="text-3xl font-[700]">- Only 2000*</p>
+      </div>
+
+      <div className="ml-8 mr-8 pb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="relative h-[224px] rounded-md shadow-lg">
+            <Image
+              src="/girl-img.jpg"
+              alt="Footer Banner"
+              width={300}
+              height={200}
+              className="object-contain w-full rounded-lg"
+            />
+            <h4 className="absolute top-10 text-lg font-bold text-right right-4 text-[var(--color-black)]">
+              Women<br />
+              products with<br />
+              low price
+            </h4>
+            <span className="absolute top-30 text-xl right-4 text-right text-[var(--color-primary)] font-bold ">900</span>
+          </div>
+          <div className="relative h-[224px] rounded-md shadow-lg">
+            <Image
+              src="/mobile-img.jpg"
+              alt="Footer Banner"
+              width={300}
+              height={200}
+              className="object-contain w-full rounded-lg"
+            />
+            <h4 className="absolute top-10 text-xl left-4 text-[var(--color-black)] font-bold ">
+              Apple iPhone
+            </h4>
+            <span className="absolute top-17 text-xl left-4 text-[var(--color-primary)] font-bold ">45000</span>
+          </div>
+          <div className="relative h-[224px] rounded-md shadow-lg">
+            <Image
+              src="/bag-2.png"
+              alt="Footer Banner"
+              width={300}
+              height={200}
+              className="object-contain w-full rounded-lg"
+            />
+            <h4 className="absolute top-10 text-xl left-4 text-[var(--color-black)] font-bold ">
+              Men's bags <br />
+              with low price
+            </h4>
+            <span className="absolute top-25 text-xl left-4 text-[var(--color-primary)] font-bold ">900</span>
+          </div>
+          <div className="relative h-[224px] rounded-md shadow-lg ">
+            <Image
+              src="/shoes.webp"
+              alt="Footer Banner"
+              width={300}
+              height={200}
+              className="object-cover h-full w-full rounded-lg"
+            />
+            <h4 className="absolute top-10 text-xl right-4 text-right text-[var(--color-black)] font-bold ">
+              Nike Shoes
+            </h4>
+            <span className="absolute top-17 text-xl right-4 text-right text-[var(--color-primary)] font-bold ">5000</span>
+          </div>
+        </div>
+      </div>
+
+      <div className="ml-8 mr-8 mt-6 pb-4">
+        <h2 className="text-start text-2xl font-bold mb-6">Latest Product</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+          {
+            latestProducts.map((product) => (
+              <MainCard
+                key={product.id}
+                image={product.image}
+                title={product.title}
+                price={product.price}
+                description={product.description}
+                previousAmmount={product.previousAmmount}
+                stock={product.stock}
+              />
+            ))
+          }
+        </div>
+      </div>
+
+      <div className="ml-8 mr-8 mt-6 pb-4">
+        <h2 className="text-start text-2xl font-bold mb-6">Feature Products</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+          {
+            fashionProducts.map((product) => (
+              <MainCard
+                key={product.id}
+                image={product.image}
+                title={product.title}
+                price={product.price}
+                description={product.description}
+                previousAmmount={product.previousAmmount}
+                stock={product.stock}
+              />
+            ))
+          }
+        </div>
       </div>
 
     </div>
