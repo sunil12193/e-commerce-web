@@ -3,6 +3,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { GoStarFill } from "react-icons/go";
 
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper/modules";
+
+import "swiper/css";
+import "swiper/css/navigation";
 
 function MainCard({ image, title, price, description, previousAmmount, stock }) {
     return (

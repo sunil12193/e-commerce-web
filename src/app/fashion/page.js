@@ -1,6 +1,14 @@
+"use client"
 import Banner from "@/component/banner";
 import React from "react";
 import MainCard from "@/component/mainCard";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper/modules";
+
+import "swiper/css";
+import "swiper/css/navigation";
+
+
 
 function FashionPage() {
     const bannerImages = [
@@ -65,20 +73,41 @@ function FashionPage() {
 
             {/* MainCard */}
             <h2 className="text-start text-2xl font-bold mb-6 ml-8 mr-8">Fashion Products</h2>
-            <div className="ml-8 mr-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 mb-8">
+            <div className="ml-8 mr-8 gap-4 mb-8">
+                <Swiper
+                    modules={[Navigation]}
+                    navigation
+                    spaceBetween={10}
+                    slidesPerView={1}
+                    breakpoints={{
+                        0: {
+                            slidesPerView: 1,
+                        },
+                        768: {
+                            slidesPerView: 3,
+                        },
+                        1024: {
+                            slidesPerView: 5,
+                        },
+                    }}
+                >
                 {
                     fashionProducts.map((product) => (
-                        <MainCard
-                            key={product.id}
-                            image={product.image}
-                            title={product.title}
-                            price={product.price}
-                            description={product.description}
-                            previousAmmount={product.previousAmmount}
-                            stock={product.stock}
-                        />
+                        <SwiperSlide key={product}>
+
+                            <MainCard
+                                key={product.id}
+                                image={product.image}
+                                title={product.title}
+                                price={product.price}
+                                description={product.description}
+                                previousAmmount={product.previousAmmount}
+                                stock={product.stock}
+                            />
+                        </SwiperSlide>
                     ))
                 }
+                </Swiper>
             </div>
 
         </div>
