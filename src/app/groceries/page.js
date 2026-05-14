@@ -2,7 +2,6 @@ import React from "react";
 import MainCard from "@/component/mainCard";
 import Banner from "@/component/banner";    
 
-
 function GroceriesPage() {
 
     const bannerImages = [

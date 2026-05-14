@@ -1,3 +1,4 @@
+"use client";
 import Banner from "@/component/banner";
 import React from "react";
 import MainCard from "@/component/mainCard";
